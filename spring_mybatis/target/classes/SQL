@@ -1,0 +1,27 @@
+-- Book3
+-- 테이블 생성
+create table book3 (
+    book3_code varchar(30) primary key,
+    book3_name varchar(30) not null,
+    book3_author varchar(30) not null,
+    book3_publisher varchar(30),
+    book3_price number,
+    book3_date varchar(30)
+);
+-- 테이블 확인
+select * from tab;
+-- 테이블 구조 확인
+select * from book3;
+-- 테이블 삭제
+drop table book3 purge;
+-- 데이터 추가
+insert into book3 values('1234', '홍길동책', '홍길동', '이젠', 15000, '2022-03-21');
+-- 인덱스 뷰
+select * from
+(select rownum rn, tt.* from
+(select * from book3 order by book3_code asc) tt)
+where rn>=1 and rn<=5;
+-- 정렬(코드기준)
+select * from book3 order by book3_code asc;
+-- 데이터 저장
+commit;

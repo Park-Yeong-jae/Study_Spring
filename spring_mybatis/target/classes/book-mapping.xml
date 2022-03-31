@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.bookMapper">
+	
+	<!-- book-mapping은 sql 설정 파일 -->
+
+	<!-- insert -->
+	<insert id="insertBook" parameterType="book.bean.BookVO">
+		insert into book3 values(#{book3_code}, #{book3_name}, #{book3_author}, #{book3_publisher}, #{book3_price}, #{book3_date})
+	</insert>
+	
+	<!-- select : list -->
+	<select id="getBookList" resultType="book.bean.BookVO">
+		select * from book3 order by book3_code asc
+	</select>
+	
+</mapper>

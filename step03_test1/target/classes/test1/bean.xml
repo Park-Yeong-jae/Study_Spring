@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Constructor Injection 
+		CalcAdd add = new CalcAdd(25, 36); 과 동일
+	-->
+	<bean id="add" class="test1.CalcAdd">
+		<constructor-arg value="25"/>
+		<constructor-arg>
+			<value>36</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Setter Injection 
+		CalcMul mul = new CalcMul();
+		mul.setA2(25);
+		mul.setB2(36); 와 동일
+	-->
+	<bean id="mul" class="test1.CalcMul">
+		<property name="a2" value="25"/>
+		<property name="b2">
+			<value>36</value>
+		</property>
+	</bean>
+
+</beans>

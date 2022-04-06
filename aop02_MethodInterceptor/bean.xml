@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean> 객체 설정 -->
+	<bean id="woman" class="aop02_MethodInterceptor.Woman"/>
+	<bean id="man" class="aop02_MethodInterceptor.Man"/>
+	
+	<!-- advice : 횡단 관심 사향 -->
+	<bean id="myAdvice" class="aop02_MethodInterceptor.MyAspect"/>
+	
+	<!-- advisor = advice + pointcut -->
+	<bean id="myAdvisor" class="org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+		<!-- 공통관심사항 객체 등록 -->
+		<property name="advice" ref="myAdvice"/>
+		<property name="expression" value="execution(public * * (..))"/>
+	</bean>
+</beans>

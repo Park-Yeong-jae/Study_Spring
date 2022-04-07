@@ -1,0 +1,28 @@
+--1) 테이블 생성
+create table score (
+    studNo varchar2(30) primary key,
+    name varchar2(30) not null,
+    kor number,
+    eng number,
+    mat number,
+    tot number,
+    avg number(4,1),
+    logtime date
+);
+--2) 테이블 삭제
+drop table score purge;
+--3) 테이블 확인
+select * from tab;
+--4) 데이터 저장 : insert
+insert into score values('1234', '홍길동', 100, 95, 90, 285, 95.0, sysdate);
+--5) 데이터 검색
+select * from score;
+select * from score order by studNo asc;
+select * from goods where studNo='1234';
+--6) 데이터 수정
+update score set kor=90, eng=90, mat=90 , tot=270, avg=90
+where studNo='1234';
+--7) 데이터 삭제
+delete score where studNo='1234';
+--8) DB저장
+commit;
